@@ -4,3 +4,9 @@
 [submodule "continuum"]
 	path = continuum
 	url = https://github.com/tmux-plugins/tmux-continuum.git
+[submodule "copycat"]
+	path = copycat
+	url = https://github.com/tmux-plugins/tmux-copycat.git
+[submodule "open"]
+	path = open
+	url = https://github.com/tmux-plugins/tmux-open.git

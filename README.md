@@ -64,3 +64,47 @@ if-shell 'test -d ~/.tmux/plugins/continuum' 'run-shell ~/.tmux/plugins/continuu
 Note that continuum never deletes saves, so you will accumulate quite a few
 over time. They aren't very large, however, so a yearly manual purge should be
 fine.
+
+#### open
+
+[tmux-open](https://github.com/tmux-plugins/tmux-open) adds a couple of key
+bindings in copy mode to directly open URLs and files.
+
+``` tmux
+set -g @open-S 'https://stackoverflow.com/search?q='
+set -g @open-G 'https://www.google.com/search?q='
+
+if-shell 'test -d ~/.tmux/plugins/open' 'run-shell ~/.tmux/plugins/open/open.tmux' ''
+```
+
+With an active selection:
+
+* <kbd>o</kbd> – open the file or URL (e.g., with `open` on macOS)
+* <kbd>Ctrl</kbd>–<kbd>O</kbd> – open the file in `$EDITOR` (note that this
+* <kbd>Shift</kbd>–<kbd>S</kbd> – search for the highlighted text online (in
+  google, by default, but see above snippet on how to change it, but note that
+  currently you cannot bind both upper- and lowercase of the same letter to
+  a different search engine)
+
+#### copycat
+
+[tmux-copycat](https://github.com/tmux-plugins/tmux-copycat) adds the
+capability to easily search for things and select them in copy mode. In
+particular, there is a pre-defined search for URLs, which goes together well
+with _tmux-open_.
+
+``` tmux
+if-shell 'test -d ~/.tmux/plugins/copycat' 'run-shell ~/.tmux/plugins/copycat/copycat.tmux' ''
+```
+
+* **prefix** + <kbd>/</kbd> – enter a regular expression to search for
+* **prefix** + <kbd>Ctrl</kbd>–<kbd>U</kbd> – search for URLs
+* **prefix** + <kbd>Ctrl</kbd>–<kbd>F</kbd> – search for file names
+* **prefix** + <kbd>Ctrl</kbd>–<kbd>G</kbd> – search for files in `git status`
+* **prefix** + <kbd>Ctrl</kbd>–<kbd>D</kbd> – search for digits (numbers)
+* **prefix** + <kbd>Alt</kbd>–<kbd>H</kbd> – search for hashes or such
+* **prefix** + <kbd>Alt</kbd>–<kbd>I</kbd> – search for IP addresses
+
+Once in copy mode, press <kbd>n</kbd> to jump to the next match, or
+<kbd>Shift</kbd>–<kbd>N</kbd> to jump to the previous match. Of course the
+usual copy mode bindings apply at this stage.
