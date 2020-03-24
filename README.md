@@ -108,3 +108,10 @@ if-shell 'test -d ~/.tmux/plugins/copycat' 'run-shell ~/.tmux/plugins/copycat/co
 Once in copy mode, press <kbd>n</kbd> to jump to the next match, or
 <kbd>Shift</kbd>–<kbd>N</kbd> to jump to the previous match. Of course the
 usual copy mode bindings apply at this stage.
+
+**Note**: Currently (February 2020) this plugin seems to have some issues with
+the latest versions of `tmux`, and thus I have disabled it my own
+configuration. I'm keeping the submodule so I can easily track changes, since
+it provides very useful features, but unfortunately the upstream repository
+seems to be fairly inactive with several years old pull requests for fixes
+pending…
